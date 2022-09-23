@@ -1,4 +1,4 @@
-from watchdog.observers import observer
+from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
 import os
@@ -24,11 +24,11 @@ class MyHandler(FileSystemEventHandler):
                 continue
 
 event_handler = MyHandler()
-observer.schedule(event_handler, downloads_folder, recursive=True)
+Observer.schedule(event_handler, downloads_folder, recursive=True)
 
 try:
     while True:
         time.sleep(10)
 except KeyboardInterrupt:
-    observer.stop()
-observer.join()
+    Observer.stop()
+Observer.join()
