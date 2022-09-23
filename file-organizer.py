@@ -16,9 +16,9 @@ class MyHandler(FileSystemEventHandler):
             docs_location = documents_folder + filename
             split_file = os.path.splittext(filename)
             file_type = split_file[1]
-            if file_type = '.png' or '.jpeg' or '.gif':
+            if file_type == '.png' or '.jpeg' or '.gif':
                 os.rename(src, pic_location)
-            elif file_type = '.docx' or '.doc' or '.pdf':
+            elif file_type == '.docx' or '.doc' or '.pdf':
                 os.rename(src, docs_location)
             else:
                 continue
