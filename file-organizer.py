@@ -1,8 +1,7 @@
-from watchdog.observer import observer
+from watchdog.observers import observer
 from watchdog.events import FileSystemEventHandler
 
 import os
-import json
 import time
 
 downloads_folder = "/home/eric/Downloads/"
@@ -25,7 +24,6 @@ class MyHandler(FileSystemEventHandler):
                 continue
 
 event_handler = MyHandler()
-observer = Observer()
 observer.schedule(event_handler, downloads_folder, recursive=True)
 
 try:
